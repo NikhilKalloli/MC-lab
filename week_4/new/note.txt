@@ -1,0 +1,1 @@
+Add all three files at once and build all once
