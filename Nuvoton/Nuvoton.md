@@ -35,17 +35,17 @@ More specifically (to save):  Go to nu folder on Desktop -> Nuvoton Platform -> 
 Source Group 1(right click) ->  Add files to group 1 -> Choose yourfile.c -> Add  
 
 ## STEP 7:
-Based on your program add appropriate header files to Source group 
+Based on your program add appropriate header files to Source group   
 
 click on Target1 -> Source Group1 (right click) -> Add files to group 1 -> Go to nu140 ->  Nuvoton Platform_Keil -> src -> Driver -> Add header files as per your program
 
 
-Hack, Add these files to any program you get for Nuvoton board.
-Driver -> DrvSYS.c , DrvGPIO.c , DrvUART.c
-NUC -> LCD_Driver.c , Ascii_Table.c, ScanKey.c , Seven_Segment.c
+Hack, Add these files to any program you get for Nuvoton board.  
+Driver -> DrvSYS.c , DrvGPIO.c , DrvUART.c  
+NUC -> LCD_Driver.c , Ascii_Table.c, ScanKey.c , Seven_Segment.c  
 
 ## STEP 8:
-Click Save all _> Connect your board to CPU -> Build -> Load -> CLick reset button on Nuvoton Board.
+Click Save all -> Connect your board to CPU -> Build -> Load -> CLick reset button on Nuvoton Board.
 
 
 
