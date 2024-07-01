@@ -7,7 +7,7 @@
 int main(void)
 {
 	UNLOCKREG();
-	DrvSYS_Open(48000000); // set to 48MHz
+	DrvSYS_Open(48000000); 
 	LOCKREG(); 
 
 	Initial_panel(); 

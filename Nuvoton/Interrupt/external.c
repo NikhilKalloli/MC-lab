@@ -1,6 +1,3 @@
-//
-// Smpl_GPIO_EINT1 : External Interrupt pin to trigger interrupt on GPB15, then Buzz
-//
 #include <stdio.h>
 #include "NUC1xx.h"
 #include "Driver\DrvGPIO.h"
