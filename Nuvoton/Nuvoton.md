@@ -41,7 +41,7 @@ click on Target1 -> Source Group1 (right click) -> Add files to group 1 -> Go to
 
 
 Hack, Add these files to any program you get for Nuvoton board.  
-Driver -> DrvSYS.c , DrvGPIO.c , DrvUART.c  
+Driver -> DrvSYS.c , DrvGPIO.c , DrvUART.c
 NUC -> LCD_Driver.c , Ascii_Table.c, ScanKey.c , Seven_Segment.c  
 
 ## STEP 8:
