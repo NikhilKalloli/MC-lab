@@ -4,8 +4,8 @@
 	EXPORT __main
 	
 __main
-	ldr r0,=0x00243564
-	ldr r1,=0x03436356
+	ldr r0,=0x20000000
+	ldr r1,=0x20000120
 	ldr r2,=128
 loop   
 	ldmia r0!,{r4-r7}
