@@ -4,19 +4,19 @@
 	EXPORT __main
 	
 __main
-	 LDR R0, =0
-	 CMP R0, #3
-	 BHI default_case
-	 MOVS R2, #4 
-	 MULS R0, R2, R0
-        LDR R1, =BranchTable
+	LDR R0, =0
+	CMP R0, #3
+	BHI default_case
+	MOVS R2, #4 
+	MULS R0, R2, R0
+		LDR R1, =BranchTable
         LDR R2,[R1,R0]
         BX R2
 	ALIGN 4
 
 BranchTable
 	DCD Dest0 
-	DCD  Dest1 
+	DCD Dest1 
 	DCD Dest2 
 	DCD Dest3 
 

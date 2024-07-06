@@ -4,31 +4,21 @@
 	EXPORT __main
 	
 __main
-	 LDR R0, =0
-	 CMP R0, #3
-	 BHI default_case
-	 MOVS R2, #4 
-	 MULS R0, R2, R0
-        LDR R1, =BranchTable
-        LDR R2,[R1,R0]
-        BX R2
-	ALIGN 4
-
-BranchTable
-	DCD Dest0 
-	DCD  Dest1 
-	DCD Dest2 
-	DCD Dest3 
-
-default_case 
-stop B stop
-Dest0  ldr r0, =10 
-stop1 B stop1
-Dest1 ldr r0, =20  
-stop2 B stop2
-Dest2 ldr r0, =30  
-stop3 B stop3
-Dest3 ldr r0, =40  
-stop4 B stop4
-
-	 END
+	;extraction
+    ldr r0,=0x12345678
+	lsls r0,r0,#(32-16-8)
+	lsrs r0,r0,#(32-8)
+	
+	;clearing
+	ldr r4,=0x12345678
+	movs r1,#16
+	movs r2,#8
+	movs r3,#8
+	
+	rors r4,r4,r1
+	lsrs r4,r4,r2
+	rors r4,r4,r3
+stop b stop
+	END
+	
+	
