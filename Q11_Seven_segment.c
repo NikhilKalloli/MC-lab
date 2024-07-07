@@ -38,13 +38,14 @@ void seg_display(int16_t value)
 
 int main(void)
 {
+  
+  int16_t val;
+  val = 0000;
 
   UNLOCKREG();
 	DrvSYS_Open(180000);
 	LOCKREG();
 
-  int16_t val;
-  val = 0000;
 
   while (1)
   {
