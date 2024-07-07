@@ -1,45 +1,48 @@
 #include <stdio.h>
 #include "NUC1xx.h"
-#include "Driver\DrvSYS.h"
 #include "Driver\DrvGPIO.h"
+#include "Driver\DrvUART.h"
+#include "Driver\DrvSYS.h"
 
-void Init_LED() // Initialize GPIO pins
+void Init_LED()
 {
-	DrvGPIO_Open(E_GPC, 15, E_IO_OUTPUT); // GPC12 pin set to output mode
-	DrvGPIO_SetBit(E_GPC, 15);						// Goutput Hi to turn off LED
-
-	DrvGPIO_Open(E_GPC, 14, E_IO_OUTPUT); // GPC12 pin set to output mode
-	DrvGPIO_SetBit(E_GPC, 14);
-
-	DrvGPIO_Open(E_GPC, 13, E_IO_OUTPUT); // GPC12 pin set to output mode
-	DrvGPIO_SetBit(E_GPC, 13);
+	DrvGPIO_Open(E_GPA, 12, E_IO_OUTPUT);
+	DrvGPIO_Open(E_GPA, 13, E_IO_OUTPUT);
+	DrvGPIO_Open(E_GPA, 14, E_IO_OUTPUT);
 	
-	DrvGPIO_Open(E_GPC, 12, E_IO_OUTPUT); // GPC12 pin set to output mode
-	DrvGPIO_SetBit(E_GPC, 12);
-}
+	DrvGPIO_SetBit(E_GPA, 12);
+	DrvGPIO_SetBit(E_GPA, 13);
+	DrvGPIO_SetBit(E_GPA, 14);
+}    
 
-int main(void)
+int main (void)
 {
-		while (1) // forever loop to keep flashing four LEDs one at a time
-	{
-		DrvGPIO_ClrBit(E_GPC, 15); // output Low to turn on LED
-		DrvSYS_Delay(300000);			 // delay
-		DrvGPIO_SetBit(E_GPC, 15); // output Hi to turn off LED
-		DrvSYS_Delay(300000);			 // delay
+	UNLOCKREG();
+	DrvSYS_Open(48000000);
+	LOCKREG();
 
-		DrvGPIO_ClrBit(E_GPC, 14); // output Low to turn on LED
-		DrvSYS_Delay(300000);			 // delay
-		DrvGPIO_SetBit(E_GPC, 14); // output Hi to turn off LED
-		DrvSYS_Delay(300000);
+	Init_LED();
+						   
+	while (1){		 
+		DrvGPIO_ClrBit(E_GPA,12);
+		DrvGPIO_SetBit(E_GPA,13); 
+		DrvGPIO_SetBit(E_GPA,14); 
+		DrvSYS_Delay(1000000); 		   
+		
+		DrvGPIO_SetBit(E_GPA,12); 
+		DrvGPIO_ClrBit(E_GPA,13);
+		DrvGPIO_SetBit(E_GPA,14); 
+		DrvSYS_Delay(1000000);			  
+		
+		DrvGPIO_SetBit(E_GPA,12); 
+		DrvGPIO_SetBit(E_GPA,13); 
+		DrvGPIO_ClrBit(E_GPA,14);
+		DrvSYS_Delay(1000000);			  
+			
+		DrvGPIO_SetBit(E_GPA,12);
+		DrvGPIO_SetBit(E_GPA,13);
+		DrvGPIO_SetBit(E_GPA,14);
+		DrvSYS_Delay(1000000);
 
-		DrvGPIO_ClrBit(E_GPC, 13); // output Low to turn on LED
-		DrvSYS_Delay(300000);			 // delay
-		DrvGPIO_SetBit(E_GPC, 13); // output Hi to turn off LED
-		DrvSYS_Delay(300000);
-
-		DrvGPIO_ClrBit(E_GPC, 12); // output Low to turn on LED
-		DrvSYS_Delay(300000);			 // delay
-		DrvGPIO_SetBit(E_GPC, 12); // output Hi to turn off LED
-		DrvSYS_Delay(300000);
 	}
 }
