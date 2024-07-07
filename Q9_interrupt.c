@@ -6,17 +6,20 @@
 
 void EINT1Callback(void)
 {
-  DrvGPIO_ClrBit(E_GPB, 11); // GPB11 = 0 to turn on Buzzer
-  DrvSYS_Delay(100000);      // Delay
-  DrvGPIO_SetBit(E_GPB, 11); // GPB11 = 1 to turn off Buzzer
-  DrvSYS_Delay(100000);      // Delay
+  DrvGPIO_ClrBit(E_GPB, 11); 
+  DrvSYS_Delay(100000);      
+  DrvGPIO_SetBit(E_GPB, 11); 
+  DrvSYS_Delay(100000);     
 }
 
 int main(void)
 {
-  DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); // initial GPIO pin GPB11 for controlling Buzzer
-  DrvGPIO_Open(E_GPB, 15, E_IO_INPUT);                             // configure external interrupt pin GPB15
-  DrvGPIO_EnableEINT1(E_IO_BOTH_EDGE, E_MODE_EDGE, EINT1Callback); // configure external interrupt
+  UNLOCKREG();
+	DrvSYS_Open(48000000);
+	LOCKREG();
+  
+  DrvGPIO_Open(E_GPB, 11, E_IO_INPUT); 
+  DrvGPIO_EnableEINT1(E_GPB, 11, EINT1Callback);
   while (1)
   {}
 }

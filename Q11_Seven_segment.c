@@ -36,7 +36,7 @@ void seg_display(int16_t value)
   DrvSYS_Delay(5000);
 }
 
-int32_t main(void)
+int main(void)
 {
   int val;
   val = 0000;
