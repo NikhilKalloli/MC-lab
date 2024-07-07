@@ -38,14 +38,19 @@ void seg_display(int16_t value)
 
 int main(void)
 {
-  int val;
+
+  UNLOCKREG();
+	DrvSYS_Open(180000);
+	LOCKREG();
+
+  int16_t val;
   val = 0000;
 
   while (1)
   {
     DrvSYS_Delay(500);
-    val = val++;
     seg_display(val);
+    val++;
     if (val == 99)
     {
       close_seven_segment();
