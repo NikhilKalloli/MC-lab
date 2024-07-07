@@ -7,17 +7,17 @@
 
 int main(void)
 {
-  int8_t number;
+  int8_t num;
   char TEXT[16] = "Keypad: ";
 
   Initial_panel();
   clr_all_panel();
-  OpenKeyPad();       // initialize 3x3 keypad
+  OpenKeyPad();       
 
   while (1)
   {
-    number = Scankey();               
-    sprintf(TEXT + 8, "%d", number); 
+    num = Scankey();               
+    sprintf(TEXT + 8, "%d", num); 
     print_lcd(0, TEXT);             
   }
 }
