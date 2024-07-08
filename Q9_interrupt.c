@@ -18,8 +18,9 @@ int main(void)
 	DrvSYS_Open(48000000);
 	LOCKREG();
   
-  DrvGPIO_Open(E_GPB, 11, E_IO_INPUT); 
-  DrvGPIO_EnableEINT1(E_GPB, 11, EINT1Callback);
+  DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); 
+  DrvGPIO_Open(E_GPB, 15, E_IO_INPUT); 
+  DrvGPIO_EnableEINT1(E_IO_BOTH_EDGE, E_MODE_EDGE, EINT1Callback);
   while (1)
   {}
 }
